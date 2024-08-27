@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: linear-gradient(45deg, #468DFF, #5DB0FF);
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      position: relative;
+    }
+    header i {
+      font-size: 20px;
+      color: #fff;
+      position: absolute;
+      top: 25px;
+      left: 10px;
+      transition: color 0.3s ease;
+    }
+    header h4 {
+      padding: 25px;
+      padding-left: 45px;
+      font-size: 20px;
+      color: #fff;
+    }
+    #QuestionContainer {
+      font-size: 17px;
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: #fff;
+      border: 2px solid #fff;
+      height: auto;
+      max-width: 90%;
+      margin: 15px auto;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.2);
+      text-align: center;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    #QuestionContainer.hide {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .Score span {
+      display: flex;
+      padding-left: 15px;
+      padding-top: 15px;
+    }
+    .hint {
+      background: #4660FF;
+      width: 80%;
+      margin: 15px auto;
+      padding: 15px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 7px;
+      transition: background-color 0.3s ease;
+    }
+    .input {
+      display: flex;
+      padding-left: 15px;
+      margin-top: 20px;
+    }
+    .input input {
+      width: 270px;
+      height: 50px;
+      border-style: none;
+      border-radius: 7px;
+      padding-left: 7px;
+      margin-right: 7px;
+      transition: border 0.3s ease;
+    }
+    .input input:focus {
+      border: 2px solid #4660FF;
+    }
+    .input button {
+      border-style: none;
+      background: #4660FF;
+      width: 60px;
+      color: #fff;
+      border-radius: 7px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .input button:hover {
+      background: #3449C3;
+    }
+    .correction h4 {
+      padding-left: 25px;
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInBottom 0.5s forwards;
+    }
+    #correct {
+      background: #4DFF2E;
+      width: 200px;
+      margin-left: 40px;
+      padding: 15px;
+      border-radius: 7px;
+      color: #000;
+      
+    }
+    #incorrect {
+      margin-top: 5px;
+      background: #FF2317;
+      width: 200px;
+      margin-left: 40px;
+      padding: 15px;
+      border-radius: 7px;
+      color: #000;
+    }
+    .instruction {
+      margin-left: 15px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .time {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 2.5px solid #fff;
+      width: 50px;
+      height: 50px;
+      top: 55px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #468DFF, #5DB0FF);
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+
+    @keyframes fadeInBottom {
+        0%{opacity: 0; translateY(0)}
+        100%{opacity: 1; translateY(20px)}
+      }
+  </style>
+</head>
+<body>
+  <header><i id="quit" class="fa-solid fa-arrow-left"></i><h4>Readvival</h4></header>
+  <div id="QuestionContainer">
+    <h4 id="Question">Question</h4>
+  </div>
+  <div class="time">
+    <span><p id="timer">0</p></span>
+  </div>
+  <div class="Score">
+    <span><p>Scores</p><p>:</p><p id="score">0</p></span>
+  </div>
+  <div class="hint">
+    <h4>Hint:<p id="hint"></p></h4>
+  </div>
+  <h4 class="instruction">Input your Answer here</h4>
+  <div class="input">
+    <input id="answerInput" type="text">
+    <button id="nextButton">Next<i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+  <div class="correction">
+    <h4 id="incorrect">The Answer Is Incorrect</h4>
+    <h4 id="correct">The Answer Is Correct</h4>
+  </div>
+  <script>
+  let scoreEl = document.getElementById("score");
+let hintEl = document.getElementById("hint");
+let time = 0;
+let timerInterval;
+let currentQuestionIndex = 0;
+let score = 0;
+
+const quizData = [
+  {
+    question: "1. Which of the following sentences contains a verb in the past tense?",
+    correctAnswer: "She",
+    hint: "It's something you do"
+  }
+];
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    time++;
+    document.getElementById("timer").textContent = time;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function displayQuestion() {
+  const questionElement = document.getElementById('Question');
+  const container = document.getElementById('QuestionContainer');
+  
+  container.classList.add('hide');
+
+  setTimeout(() => {
+    hintEl.textContent = quizData[currentQuestionIndex].hint;
+    questionElement.textContent = quizData[currentQuestionIndex].question;
+    container.classList.remove('hide');
+  }, 500); // Match the transition duration
+}
+
+function checkAnswer() {
+  const userAnswer = document.getElementById('answerInput').value.trim();
+  const correctAnswer = quizData[currentQuestionIndex].correctAnswer;
+  const correctElement = document.getElementById('correct');
+  const incorrectElement = document.getElementById('incorrect');
+
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    correctElement.style.display = 'block';
+    incorrectElement.style.display = 'none';
+    correctElement.style.opacity = 1;
+    correctElement.style.transform = 'translateY(0)';
+    score++;
+    scoreEl.textContent = score; // Update the score display
+    localStorage.setItem("Normalscore", score); // Save the updated score
+  } else {
+    correctElement.style.display = 'none';
+    incorrectElement.style.display = 'block';
+    incorrectElement.style.opacity = 1;
+    incorrectElement.style.transform = 'translateY(0)';
+  }
+}
+
+function handleNext() {
+  checkAnswer();
+  document.getElementById('answerInput').value = ''; // Clear input after checking
+
+  setTimeout(() => {
+    const correctElement = document.getElementById('correct');
+    const incorrectElement = document.getElementById('incorrect');
+
+    correctElement.style.opacity = 0;
+    incorrectElement.style.opacity = 0;
+    correctElement.style.transform = 'translateY(20px)';
+    incorrectElement.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+      correctElement.style.display = 'none';
+      incorrectElement.style.display = 'none';
+
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        displayQuestion();
+      } else {
+        document.getElementById('Question').textContent = 'Quiz Finished!';
+        stopTimer();
+        hintEl.textContent = "";
+      }
+    }, 200); // Match the animation duration
+  }, 1000); // 1-second delay
+}
+
+document.getElementById('nextButton').addEventListener('click', handleNext);
+
+// Initialize the quiz
+startTimer();
+displayQuestion();
+
+document.getElementById("quit").addEventListener("click", () => {
+    window.location.assign("/index.html")
+});
+  </script>
+</body>
+</html>

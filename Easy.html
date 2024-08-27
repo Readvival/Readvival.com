@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Quiz</title>
+    </head> 
+      <header><i id="quit" class="fa-solid fa-arrow-left"></i><h4>Readvival</h4></header>
+    <body> 
+        <div class="container" id="quiz">
+         <h4 id="question">question</h4>
+        </div>  
+     <div class="score">
+        <p>Score:<span id="scores"></span></p>
+     </div>
+       <div class="choices">
+        <ul id="listofchoice">
+    <li>
+        <input type="radio" name="answer" id="a" class="answer" >
+        <label for="a" id="a_text">Answer</label>
+    </li>
+    <li>
+          <input type="radio" name="answer" id="b" class="answer">
+        <label for="b" id="b_text">Answer</label>
+    </li>
+    <li>
+      <input type="radio" name="answer" id="c" class="answer">
+        <label for="c" id="c_text">Answer</label>
+    </li>
+    <li>
+      <input type="radio" name="answer" id="d" class="answer" >
+        <label for="d" id="d_text">Answer</label>
+    </li>
+</ul>
+       </div>
+     <div id="Progress">
+     <span><p id="Prog">0</p><p>/</p><p>10</p></span>
+     </div>
+       <div class="timer">
+          <span><p id="timer">0</p><p></p></span>
+       </div>
+      <div class="Feedback" id="feedbackpage">
+        <h4>Your Score is low please Try Again</h4>
+            <p>Try reading these Books </p>
+            <ul class="booklist">
+              <li><h4>Pronouns</h4></li>
+              <li><h4>Adjectives</h4></li>
+              <li><h4>Verbs</h4></li>
+            </ul>
+      </div>
+     </body>
+     <style>
+     * {
+         margin: 0px;
+         padding: 0px;
+         list-style: none;
+     }
+     body {
+         background: linear-gradient(45deg, #468DFF, #5DB0FF);
+         height: 100vh;
+     }
+     header {
+         display: flex;
+         padding: 20px;
+         color: #fff;
+     }
+     .container {
+         display: flex;
+         justify-content: center;
+         padding: 60px;
+         border: 2px solid #fff;
+         margin: 20px;
+         border-radius: 7px;
+     }
+     .container h4 {
+         font-size: 18px;
+         color: #fff;
+     }
+     i {
+         margin-right: 7px;
+     }
+     .score {
+         font-size: 17px;
+         padding-left: 50px;
+         font-weight: 500;
+     }
+     .choices {
+         display: flex;
+         justify-content: center;
+         margin-top: 20px;        
+     }
+     .choices li {
+         display: flex;
+         align-items: center;
+         width: 350px;
+         margin: 7px;
+         height: 50px;
+         padding: 10px;
+         border-radius: 7px;
+         background: #2E82FF;
+         color: #ffff;
+         font-weight: 700;
+         box-shadow: 3px 7px #5D99FF;
+         animation: fadeInLeft 0.5s ease;
+     }
+     input[type="radio"] {
+         display: none;
+     }
+     .choices li:hover {
+         background: #2E6BFF;
+         transition: 0.5s;
+     }
+     .choices li:active {
+         background: #DBDBDB;
+     }
+     #Progress span{
+         display: flex;
+         margin: 1px;
+         position: absolute;
+         bottom: 30px;
+         left: 50%;
+         transform: translateX(-50%);
+         opacity: 60%;
+         font-weight: 500;
+     }
+     #quiz button {
+         background: #2E6BFF;
+         border-style: none;
+         width: 50px;
+         padding: 5px;
+         color: #fff;
+         font-weight: 500;
+         margin-left: 5px;
+         border-radius: 8px;
+     }
+     .timer span{
+         display: flex;
+         border: 2px solid #fff;
+         width: 50px;
+         height: 50px;
+         align-items: center;
+         justify-content: center;
+         font-size: 20px;
+         color: #fff;
+         font-weight: bold;
+         border-radius: 25px;
+         background: linear-gradient(45deg, #468DFF, #5DB0FF);
+     }
+     .timer {
+         position: absolute;
+         top: 55px;
+         left: 50%;
+         transform: translateX(-50%);
+     }
+      .Feedback {
+         background: #fff;
+         width: 90%;
+         margin: 15px;
+         border-radius: 3px; 
+         display: none;   
+      }
+      .Feedback h4 {
+          padding: 7px;
+      }
+      .Feedback p {
+          font-size: 13px;
+          font-weight: normal;
+          padding-left: 7px;
+      }
+      .Feedback li {
+          border: 1px solid #2E6BFF;
+          margin: 7px;
+          border-radius: 5px;
+          font-weight: 500;
+      }
+      .Feedback li:hover{
+          background: #2E6BFF;
+          color: #fff;
+          transition: 0.2s;
+      }      
+    @keyframes fadeInLeft {
+             0% { opacity: 0; transform: translateX(-20px); } 
+        100% { opacity: 1; transform: translateX(0); }
+        }
+     </style>
+     <script src="Easy.js"></script>
+</html>

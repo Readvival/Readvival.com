@@ -1,0 +1,59 @@
+* {
+    color: #000000;
+    padding: 0px;
+    margin: 0;
+    padding: 0px;
+}
+header h3 {
+    padding: 15px;
+    font-size: 20px;
+    color: #fff;
+}
+body {
+    background: linear-gradient(45deg, #468DFF, #5DB0FF);
+    height: 100vh;
+}
+#container h4,pre{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    background: #2E6BFF;
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+}
+/*for better custom for pre-tags*/
+/*#container pre {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25%;
+    padding: 50px;
+    background: #46A4FF;
+    width: 70%;
+}*/
+pre {
+    margin-top: 30px;
+    background: #46A4FF;
+    width: 80%;
+    padding: 20px;
+    font-weight: bold;
+    color: #000;
+}
+progress,p{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    margin-bottom: 10px;
+}
+p {
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+}

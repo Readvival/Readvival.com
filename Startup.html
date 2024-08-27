@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+   <style>
+        * {
+           padding: 0px;
+           margin: 0px;
+        }
+        body {
+           background: linear-gradient(45deg, #468DFF, #5DB0FF);
+        }
+        header {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 17px;
+            margin-bottom: 50px;
+            font-weight: 500;
+            color: #fff;
+        }
+        #btn {
+            width: 90%;
+            height: 40px;
+            background: #2E82FF;
+            border-style: none;
+            border-radius: 7px;
+            color: #fff;
+            font-weight: 700;
+            position: absolute;
+            bottom: 15px;
+            margin-left: 5%;
+        }
+        .imgshow {
+            display: flex;
+            overflow-x: scroll;
+            background: #2E82FF;
+            border-radius: 7px;
+            margin: 5px;  
+            align-items: center;   
+            transition: 0.5s;
+        }
+        .imgshow div{
+            margin: 25px;
+        }
+        .imgshow h4 {
+            padding: 15px;
+            font-weight: 500;
+            font-size: 15px;
+            opacity: 70%;
+        }
+        .imgshow img {
+            border-radius: 7px;
+        }
+        #img2 {
+            display: none;
+        }
+        @keyframes fadein{
+            0%{opacity: 0;}
+            100%{opacity: 100%;}
+        }
+    </style>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    </head>
+     <!-- Logo -->
+    <header><h3>Readvival</h3><h5 id="Skip">Skip</h5></header>
+    <body>
+    <!--Body -->
+      <div class="imgshow">
+          <div id="img1"><img src="pict/Startimg2.png" width="350px"><h4>Choose What you like to Read</h4></div>
+          <div id="img2"><img src="pict/Startimg.png" width="350px"><h4>Learn it Experience it</h4></div>
+      </div>
+     <!-- Progress-->
+          <div>
+              <div class="prog1"></div>
+              <div class="prog2"></div>
+          </div>
+      <!-- Buttons -->
+           <button id="btn">Get Started</button>
+    </body>
+    <script>
+    //for button 
+    const btn = document.getElementById("btn")
+    const img2 = document.getElementById("img2")
+    const img = document.getElementById("img1")
+    const skip = document.getElementById("skip")
+    let click = 0;
+    let visit = 0;
+    btn.addEventListener("click", e => {
+        img.style.display = "none";
+        img2.style.display = "block";
+        img2.style.animation = "fadein 0.5s ease";
+        btn.textContent = "Next";
+        btn.style.animation = "fadein 0.5s ease";
+        click++
+        visit++
+        localStorage.setItem("save1" , visit);
+        console.log(visit)
+        if (click == 2){
+    window.location.assign("Loading.html");
+}
+    })
+     if (localStorage.getItem("save1") == 2){
+    window.location.assign("Loading.html")
+}
+    skip.addEventListener("click" , e => {
+        visit = 2;
+        window.location.assign("Loading.html")
+    })
+    </script>
+</html>

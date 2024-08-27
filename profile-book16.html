@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    </head>
+         <header>  
+              <h3>Readvival</h3>
+         </header>
+    <body>
+      <!--Profile-->
+         <div class="image">
+           <img  id="bookimg" src="/pict/Nav1.png" width="250">
+         </div>
+      <div class="Profile">
+          <h4 id="booktitle" >Decoding</h4>
+               <p id="bookauthor" >By berbs22</p>
+                 <hr >
+      </div>
+      <!--Description-->
+          <div class="Description">
+              <h4>Description</h4>
+                  <p id="bookdescription">Decoding is the ability to apply knowledge of letter-sound relationships, including knowledge of letter patterns, to correctly pronounce written words.</p>
+          </div>
+      <!--Buttons-->
+       <div class="Btn">
+            <button id="Read" onclick="Read()">Read</button>
+               <button id="Quit" onclick="Quit()">Quit</button>
+               </div>
+    </body>
+    <style>
+       body {
+           margin: 0px;
+           padding: 0px;
+           background: linear-gradient(45deg, #468DFF, #5DB0FF);
+       }
+       header {
+           border-bottom: 1px solid #fff;
+           font-weight: 500;
+           color: #fff;
+           display: flex;
+           justify-content: center;
+           border-bottom-right-radius: 10px;
+           border-bottom-left-radius: 10px;
+           box-shadow: 5px 2.5px #DFDFDF;
+           animation: fadeInBottom 0.5s ease;
+       }
+      .image {
+          animation: fadeIn 0.5s ease;
+      }
+      .Profile h4{
+          text-align: center;
+      }
+      .Profile p {
+          text-align: center;
+          font-size: 15px;
+          opacity: 70%;
+          font-weight: 500;
+      }
+      .image {
+          display: flex;
+          justify-content: center;
+          padding: 15px;
+      }
+      .image img {
+          border-radius: 5px;
+          box-shadow: 2.5px 2.5px #E0E0E0;
+      }
+      .Description {
+          animation: fadeInLeft 0.5s ease;
+      }
+      .Description h4{
+          padding: 5px;
+          margin-left: 7px;
+      }
+      .Description p {
+          padding: 5px;
+          font-size: 15px;
+          font-weight: 500;
+          margin-left: 15px;
+      }
+      .Btn button {
+          position: absolute;
+          bottom: 0px;
+          height: 50px;
+          width: 50%;
+          color: #fff;
+      }
+      #Read {
+          left: 0px;
+          border: 0.5px solid #fff;
+          background: #2E82FF;
+          font-size: 17px;
+          font-weight: 500;
+          border-top-left-radius: 8px;
+      }
+      #Quit {
+          color: #2E82FF;
+          right: 0px;
+          border: 0.5px solid #fff;
+          background: #FAF9F6;
+          font-size: 17px;
+          font-weight: 500;
+          border-top-right-radius: 8px;
+      }
+     #Read:hover,#Quit:hover {
+         background: #fff;
+         color: #2E82FF;
+         transition: 0.3s;
+     }
+     @keyframes fadeInRight { 
+        0% { opacity: 0; transform: translateX(20px); } 
+        100% { opacity: 1; transform: translateX(0); }
+         }  
+        @keyframes fadeInTop {
+             0% { opacity: 0; transform: translateY(20px); } 
+        100% { opacity: 1; transform: translateY(0px); }
+        }
+        @keyframes fadeInLeft {
+             0% { opacity: 0; transform: translateX(-20px); } 
+        100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeIn {
+            0%{opacity: 0%;}
+            100%{opacity: 100%;}
+        }
+         @keyframes fadeInBottom {
+             0% { opacity: 0; transform: translateY(-20px); } 
+        100% { opacity: 1; transform: translateY(0px); }
+        }
+    </style>
+    <script>
+//function for btn   
+          function Quit(){
+    window.location.assign("/index.html")
+}
+    function Read(){
+    window.location.assign("/books/book16.html")
+}    
+    </script>
+</html>

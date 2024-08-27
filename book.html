@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #E8F0FF; /* Soft blue background */
+        color: #333; /* Darker text color for contrast */
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    header {
+        border-bottom: 1px solid #C6C6C6;
+        height: 50px; /* Smaller header height */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #B0C4DE; /* Soft blue header */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 10;
+        padding: 0 15px; /* Adjusted padding */
+    }
+
+    header i {
+        font-size: 20px; /* Smaller icon */
+        color: #fff;
+        cursor: pointer;
+    }
+
+    header h6 {
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 60px; /* Adjusted margin for the smaller header */
+        padding: 20px;
+    }
+
+    p.title {
+        font-size: 36px; /* Slightly smaller title font size */
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #2E6BFF; /* Title color matching your color scheme */
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    h3, h4 {
+        font-weight: bold;
+        margin-top: 20px;
+        color: #2E6BFF; /* Heading color matching your color scheme */
+    }
+
+    ul, ol {
+        margin-left: 40px;
+        margin-bottom: 20px;
+    }
+
+    ul li, ol li {
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #2E6BFF; /* Soft blue line */
+        margin: 20px 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #additional-info {
+        background-color: #ffffff;
+        border: 1px solid #C6C6C6;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <i id="quitbook" class="fa-solid fa-arrow-left"></i>
+    <h6 id="info-toggle">:</h6>
+  </header>
+  <main>
+    <p class="title">Verbs</p>
+    <p>What is a verb?</p>
+    <div class="content">
+      <h3>What is a Verb?</h3>
+      <p>Verbs are the action words in a sentence that describe what the subject is doing. Along with nouns, verbs are the main part of a sentence or phrase, telling a story about what is taking place. In fact, without a verb, full thoughts can’t be properly conveyed, and even the simplest sentences are incomplete without them.</p>
+      <hr>
+      <h3>Types of Verbs</h3>
+      <h4>Dynamic (Action Verbs)</h4>
+      <p>Most verbs describe a physical action or activity, something external that can be seen or heard. These verbs are formally known as dynamic verbs, but can also be called action or event verbs.</p>
+      <ul>
+        <li>walk</li>
+        <li>laugh</li>
+        <li>swim</li>
+        <li>play</li>
+        <li>eat</li>
+        <li>drink</li>
+        <li>sing</li>
+        <li>dance</li>
+        <li>talk</li>
+        <li>say</li>
+      </ul>
+      <h4>Stative (State of Being)</h4>
+      <p>The opposite of dynamic verbs of action is stative verbs of being. Stative verbs describe a subject’s state or feeling, including things they like and don’t like.</p>
+      <ul>
+        <li>want</li>
+        <li>need</li>
+        <li>prefer</li>
+        <li>love</li>
+        <li>hate</li>
+        <li>like</li>
+        <li>dislike</li>
+        <li>seem</li>
+        <li>understand</li>
+        <li>know</li>
+        <li>believe</li>
+        <li>involve</li>
+        <li>realize</li>
+      </ul>
+      <h4>Examples in Sentences</h4>
+      <ol>
+        <li>I can’t see without my glasses.</li>
+        <li>Cake still tastes great even if it’s not your birthday.</li>
+        <li>I haven’t been seeing well since I lost my glasses.</li>
+        <li>We were tasting cakes for the wedding all afternoon.</li>
+      </ol>
+      <h4>Auxiliary (Helping) Verbs</h4>
+      <p>Auxiliary verbs, or “helping verbs,” are used in English to change another verb’s tense, voice, or mood. When auxiliary verbs are used, there’s always a main verb that represents the main action. However, the auxiliary verb must still be conjugated correctly.</p>
+      <p>Example: <strong>Did you eat my sushi?</strong> (mood)</p>
+      <h4>Phrasal Verbs</h4>
+      <p>Phrasal verbs are phrases that act as individual verbs, often combining two or more words and changing their meaning. The verb <strong>get</strong>, for example, becomes many different phrasal verbs when combined with different prepositions.</p>
+      <p>Example: <strong>When the bus stops, passengers get out on the sidewalk.</strong> <br> <strong>After losing his job, he’s getting by on savings.</strong></p>
+    </div>
+    <!-- Hidden additional information section -->
+    <div id="additional-info" class="hidden">
+      <h4>Additional Information</h4>
+      <p>This section provides extra details about verbs, including more examples and usage tips.</p>
+    </div>
+  </main>
+  <script>
+    document.getElementById("quitbook").addEventListener("click", function() {
+        window.location.assign("index.html");
+    });
+
+    document.getElementById("info-toggle").addEventListener("click", function() {
+        const additionalInfo = document.getElementById("additional-info");
+        if (additionalInfo.classList.contains("hidden")) {
+            additionalInfo.classList.remove("hidden");
+            this.textContent = "–"; // Change to minus symbol when expanded
+        } else {
+            additionalInfo.classList.add("hidden");
+            this.textContent = ":"; // Change to colon when collapsed
+        }
+    });
+
+    window.onpopstate = function() {
+        window.location.href = 'index.html'; // Replace with your main page URL
+    };
+
+    history.pushState(null, null, window.location.href);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        history.pushState(null, null, window.location.href);
+        window.addEventListener('popstate', function() {
+            window.location.href = 'index.html'; // Replace with your main page URL
+        });
+    });
+  </script>
+</body>
+</html>
